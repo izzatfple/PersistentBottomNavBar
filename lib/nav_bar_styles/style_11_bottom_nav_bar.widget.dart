@@ -49,25 +49,22 @@ class _BottomNavStyle11State extends State<BottomNavStyle11> with TickerProvider
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Expanded(
-                    child: IconTheme(
-                      data: IconThemeData(size: item.iconSize, color: isSelected ? (item.activeColorSecondary ?? item.activeColorPrimary) : item.inactiveColorPrimary ?? item.activeColorPrimary),
-                      child: isSelected ? item.icon : item.inactiveIcon ?? item.icon,
-                    ),
-                  ),
-                  Center(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: item.activeColorTertiary!, // Your gradient colors here
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                        // borderRadius: BorderRadius.circular(16), // Optional: Add border radius for a rounded icon
+                  // Expanded(
+                  //   child: IconTheme(
+                  //     data: IconThemeData(size: item.iconSize, color: isSelected ? (item.activeColorSecondary ?? item.activeColorPrimary) : item.inactiveColorPrimary ?? item.activeColorPrimary),
+                  //     child: isSelected ? item.icon : item.inactiveIcon ?? item.icon,
+                  //   ),
+                  // ),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: item.activeColorTertiary!, // Your gradient colors here
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
                       ),
-                      padding: const EdgeInsets.all(16), // Optional: Add padding to the icon container
-                      child: isSelected ? item.icon : item.inactiveIcon ?? item.icon,
-                    ),
+                      // borderRadius: BorderRadius.circular(16), // Optional: Add border radius for a rounded icon
+                    ), // Optional: Add padding to the icon container
+                    child: isSelected ? item.icon : item.inactiveIcon ?? item.icon,
                   ),
                   if (item.title == null)
                     const SizedBox.shrink()
