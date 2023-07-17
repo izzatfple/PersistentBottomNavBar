@@ -9,6 +9,7 @@ class PersistentBottomNavBarItem {
       this.contentPadding = 5.0,
       this.activeColorPrimary = CupertinoColors.activeBlue,
       this.activeColorSecondary,
+      this.activeColorTertiary,
       this.inactiveColorPrimary,
       this.inactiveColorSecondary = CupertinoColors.systemGrey,
       this.opacity = 1.0,
@@ -18,8 +19,7 @@ class PersistentBottomNavBarItem {
       this.onSelectedTabPressWhenNoScreensPushed,
       this.routeAndNavigatorSettings = const RouteAndNavigatorSettings(),
       this.onPressed})
-      : assert(opacity >= 0 && opacity <= 1.0,
-            "Opacity cannot be greater than 1 and less than 0");
+      : assert(opacity >= 0 && opacity <= 1.0, "Opacity cannot be greater than 1 and less than 0");
 
   ///Icon for the bar item.
   final Widget icon;
@@ -38,6 +38,9 @@ class PersistentBottomNavBarItem {
 
   ///Color for the item's `icon` and `title`. In most styles, declaring the the `activeColorPrimary` will be enough. But in some styles like `style7`, this might come help in differentiating the colors.
   final Color? activeColorSecondary;
+
+  ///Colors with gradient for active selected icon only
+  final List<Color>? activeColorTertiary;
 
   ///Color for the item's `inactiveIcon` and `title`. In most styles, declaring the the `inactiveColorPrimary` will be enough. But in some styles like `style7`, this might come help in differentiating the colors.
   final Color inactiveColorSecondary;
