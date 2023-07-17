@@ -55,17 +55,25 @@ class _BottomNavStyle11State extends State<BottomNavStyle11> with TickerProvider
                   //     child: isSelected ? item.icon : item.inactiveIcon ?? item.icon,
                   //   ),
                   // ),
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: item.activeColorTertiary!, // Your gradient colors here
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                      ),
-                      // borderRadius: BorderRadius.circular(16), // Optional: Add border radius for a rounded icon
-                    ), // Optional: Add padding to the icon container
+                  ShaderMask(
+                    shaderCallback: (final bounds) => LinearGradient(
+                      colors: item.activeColorTertiary!, // Your gradient colors here
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ).createShader(bounds),
                     child: isSelected ? item.icon : item.inactiveIcon ?? item.icon,
                   ),
+                  // DecoratedBox(
+                  //   decoration: BoxDecoration(
+                  //     gradient: LinearGradient(
+                  //       colors: item.activeColorTertiary!, // Your gradient colors here
+                  //       begin: Alignment.topLeft,
+                  //       end: Alignment.bottomRight,
+                  //     ),
+                  //     // borderRadius: BorderRadius.circular(16), // Optional: Add border radius for a rounded icon
+                  //   ), // Optional: Add padding to the icon container
+                  //   child: isSelected ? item.icon : item.inactiveIcon ?? item.icon,
+                  // ),
                   if (item.title == null)
                     const SizedBox.shrink()
                   else
