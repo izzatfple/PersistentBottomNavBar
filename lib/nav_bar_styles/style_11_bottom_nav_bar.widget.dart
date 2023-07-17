@@ -49,29 +49,17 @@ class _BottomNavStyle11State extends State<BottomNavStyle11> with TickerProvider
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  // Expanded(
-                  //   child: IconTheme(
-                  //     data: IconThemeData(
-                  //         size: item.iconSize,
-                  //         color: isSelected
-                  //             ? (item.activeColorSecondary ??
-                  //                 item.activeColorPrimary)
-                  //             : item.inactiveColorPrimary ??
-                  //                 item.activeColorPrimary),
-                  //     child: isSelected
-                  //         ? item.icon
-                  //         : item.inactiveIcon ?? item.icon,
-                  //   ),
-                  // ),
+                  Expanded(
+                    child: IconTheme(
+                      data: IconThemeData(size: item.iconSize, color: isSelected ? (item.activeColorSecondary ?? item.activeColorPrimary) : item.inactiveColorPrimary ?? item.activeColorPrimary),
+                      child: isSelected ? item.icon : item.inactiveIcon ?? item.icon,
+                    ),
+                  ),
                   Center(
                     child: Container(
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
-                          colors: isSelected
-                              ? item.activeColorTertiary != []
-                                  ? item.activeColorTertiary!
-                                  : [item.activeColorSecondary ?? item.activeColorPrimary]
-                              : [item.inactiveColorPrimary ?? item.activeColorPrimary], // Your gradient colors here
+                          colors: item.activeColorTertiary!, // Your gradient colors here
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                         ),
